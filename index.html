@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CommunitySync – Empowering Communities</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#"><span>Community</span>Sync</a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#analytics">Analytics</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><button id="theme-toggle" onclick="toggleTheme()" style="background:var(--lb-bg);border:1.5px solid var(--border);color:var(--ink);padding:.45rem .9rem;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:flex;align-items:center;gap:.4rem;">🌙 Dark</button></li><li><a href="#register" class="nav-btn">Get Started</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🌐 Digital Community Platform</div>
+      <h1>Empowering Communities Through <span>Digital Collaboration</span></h1>
+      <p>CommunitySync is a full-featured ecosystem for event management, real-time communication, gamification, and community growth — all in one place.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">10K+</div><div class="stat-label">Members</div></div>
+        <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Events</div></div>
+        <div class="stat"><div class="stat-num">95%</div><div class="stat-label">Engagement</div></div>
+        <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Organisations</div></div>
+      </div>
+      <div class="hero-btns">
+        <a href="#register" class="btn-primary">Join Now →</a>
+        <a href="#events" class="btn-secondary">Explore Events</a>
+        <a href="#register" class="btn-secondary">Login</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-title">📅 Upcoming Events</div>
+        <div class="event-list">
+          <div class="event-item"><div class="event-dot orange"></div><div class="event-text"><div class="event-name">Tech Innovation Summit</div><div class="event-meta">Mar 12 · 200 RSVPs</div></div><span class="event-badge">Live</span></div>
+          <div class="event-item"><div class="event-dot blue"></div><div class="event-text"><div class="event-name">Cultural Night 2026</div><div class="event-meta">Mar 18 · 340 RSVPs</div></div><span class="event-badge">Open</span></div>
+          <div class="event-item"><div class="event-dot green"></div><div class="event-text"><div class="event-name">Volunteer Drive</div><div class="event-meta">Mar 22 · 89 RSVPs</div></div><span class="event-badge">Open</span></div>
+          <div class="event-item"><div class="event-dot yellow"></div><div class="event-text"><div class="event-name">Awareness Campaign</div><div class="event-meta">Apr 1 · 120 RSVPs</div></div><span class="event-badge">Open</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM OVERVIEW / FEATURES -->
+<section id="features">
+  <div class="section-inner reveal">
+    <div class="section-header">
+      <div class="section-label">Platform Overview</div>
+      <h2 class="section-title">Everything Your Community Needs</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Explore each module — click to expand and interact with all available options.</p>
+    </div>
+
+    <!-- USER MANAGEMENT -->
+    <div class="expandable">
+      <div class="expandable-header" onclick="toggle(this)">
+        <div class="expandable-title"><div class="expandable-icon-wrap" style="background:rgba(155,127,212,.12);">👤</div> User Management</div>
+        <span class="expandable-arrow">▼</span>
+      </div>
+      <div class="expandable-body">
+        <div class="expandable-content">
+          <p style="color:var(--muted);font-size:.875rem;margin-bottom:1.25rem;">Select your role and configure your profile settings.</p>
+          <div class="role-grid">
+            <div class="role-card" onclick="selectRole(this,'Member')"><div class="role-icon">👤</div><div class="role-name">Member</div><div class="role-desc">Join events, chat, earn badges</div></div>
+            <div class="role-card" onclick="selectRole(this,'Community Leader')"><div class="role-icon">🏆</div><div class="role-name">Leader</div><div class="role-desc">Lead groups, manage events</div></div>
+            <div class="role-card" onclick="selectRole(this,'Organisation')"><div class="role-icon">🏢</div><div class="role-name">Organisation</div><div class="role-desc">Host events, analytics access</div></div>
+            <div class="role-card" onclick="selectRole(this,'Admin')"><div class="role-icon">⚙️</div><div class="role-name">Admin</div><div class="role-desc">Full platform control</div></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" placeholder="Enter your name"/></div>
+            <div class="form-group"><label class="form-label">Username</label><input class="form-input" placeholder="@username"/></div>
+          </div>
+          <div class="form-group"><label class="form-label">Bio</label><textarea class="form-input form-textarea" placeholder="Tell the community about yourself..."></textarea></div>
+          <div class="form-group">
+            <label class="form-label">Skills</label>
+            <div class="skills-wrap" id="skills-demo">
+              <span class="skill-tag" onclick="toggleSkill(this)">JavaScript</span>
+              <span class="skill-tag" onclick="toggleSkill(this)">Design</span>
+              <span class="skill-tag" onclick="toggleSkill(this)">Leadership</span>
+              <span class="skill-tag" onclick="toggleSkill(this)">Marketing</span>
+              <span class="skill-tag" onclick="toggleSkill(this)">Public Speaking</span>
+              <span class="skill-tag" onclick="toggleSkill(this)">Photography</span>
+              <span class="skill-tag" onclick="toggleSkill(this)">Research</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Badges Earned</label>
+            <div class="badges-grid">
+              <div class="badge-item"><div class="badge-emoji">🥇</div><div class="badge-name">First Event</div></div>
+              <div class="badge-item"><div class="badge-emoji">🔥</div><div class="badge-name">Hot Streak</div></div>
+              <div class="badge-item"><div class="badge-emoji">💬</div><div class="badge-name">Communicator</div></div>
+              <div class="badge-item"><div class="badge-emoji">🌟</div><div class="badge-name">Top Contrib.</div></div>
+              <div class="badge-item"><div class="badge-emoji">🎯</div><div class="badge-name">Goal Getter</div></div>
+              <div class="badge-item"><div class="badge-emoji">🤝</div><div class="badge-name">Collaborator</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REAL-TIME COMMUNICATION -->
+    <div class="expandable">
+      <div class="expandable-header" onclick="toggle(this)">
+        <div class="expandable-title"><div class="expandable-icon-wrap" style="background:rgba(74,158,222,.12);">💬</div> Real-Time Communication</div>
+        <span class="expandable-arrow">▼</span>
+      </div>
+      <div class="expandable-body">
+        <div class="expandable-content">
+          <div class="form-group">
+            <label class="form-label">Select Chat Room</label>
+            <select class="form-input form-select">
+              <option>🌐 General Community</option>
+              <option>⚡ Tech Workshop Hub</option>
+              <option>🎭 Cultural Programs</option>
+              <option>💚 Volunteer Network</option>
+              <option>📢 Announcements</option>
+            </select>
+          </div>
+          <div class="chat-container">
+            <div class="chat-header"><div class="chat-online"></div> #general-community · 142 online</div>
+            <div class="chat-messages" id="chat-messages">
+              <div class="chat-msg incoming"><strong>Aisha K.</strong><br/>Hey everyone! Ready for the Tech Summit? 🚀</div>
+              <div class="chat-msg incoming"><strong>Ravi M.</strong><br/>Absolutely! Just RSVPed. See you all there!</div>
+              <div class="chat-msg outgoing">Can't wait! Who's presenting?</div>
+              <div class="chat-msg incoming"><strong>Priya S.</strong><br/>AI & Community Tech panel is 🔥</div>
+            </div>
+            <div class="emoji-bar">
+              <button class="emoji-btn" onclick="addReaction(this,'👍')">👍 <span class="count">12</span></button>
+              <button class="emoji-btn" onclick="addReaction(this,'❤️')">❤️ <span class="count">8</span></button>
+              <button class="emoji-btn" onclick="addReaction(this,'🔥')">🔥 <span class="count">5</span></button>
+              <button class="emoji-btn" onclick="addReaction(this,'🎉')">🎉 <span class="count">3</span></button>
+              <button class="emoji-btn" onclick="addReaction(this,'🤔')">🤔 <span class="count">1</span></button>
+            </div>
+            <div class="chat-input-row">
+              <input class="chat-input" id="chat-in" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChat()"/>
+              <button class="chat-send" onclick="sendChat()">Send</button>
+            </div>
+          </div>
+          <div style="margin-top:1.25rem;">
+            <label class="form-label">📁 File Sharing</label>
+            <div style="border:2px dashed var(--border);border-radius:10px;padding:1.5rem;text-align:center;color:var(--muted);cursor:pointer;font-size:.875rem;" onclick="this.style.background='rgba(74,158,222,.05)'">
+              📎 Click to share a file or drag & drop<br/><span style="font-size:.75rem;">PDF, DOC, PNG, ZIP up to 50MB</span>
+            </div>
+          </div>
+          <div style="margin-top:1.25rem;">
+            <label class="form-label">🤖 AI Moderation Status</label>
+            <div style="background:rgba(110,200,122,.1);border:1px solid rgba(110,200,122,.3);border-radius:10px;padding:.875rem;font-size:.875rem;">✅ AI Moderation is <strong>Active</strong> — Spam & harmful content are automatically filtered.</div>
+          </div>
+          <div style="margin-top:1.25rem;">
+            <label class="form-label">Forums</label>
+            <div style="display:flex;flex-direction:column;gap:.5rem;">
+              <div style="background:var(--cream);padding:.875rem;border-radius:10px;font-size:.875rem;cursor:pointer;border:1px solid var(--border);" onclick="this.style.background='var(--white)'">💡 <strong>Ideas & Suggestions</strong> — 48 replies · 2 hrs ago</div>
+              <div style="background:var(--cream);padding:.875rem;border-radius:10px;font-size:.875rem;cursor:pointer;border:1px solid var(--border);" onclick="this.style.background='var(--white)'">🐛 <strong>Technical Help</strong> — 21 replies · 5 hrs ago</div>
+              <div style="background:var(--cream);padding:.875rem;border-radius:10px;font-size:.875rem;cursor:pointer;border:1px solid var(--border);" onclick="this.style.background='var(--white)'">📣 <strong>Event Feedback</strong> — 63 replies · 1 day ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EVENT MANAGEMENT -->
+    <div class="expandable" id="events">
+      <div class="expandable-header" onclick="toggle(this)">
+        <div class="expandable-title"><div class="expandable-icon-wrap" style="background:rgba(110,200,122,.12);">📅</div> Event Management</div>
+        <span class="expandable-arrow">▼</span>
+      </div>
+      <div class="expandable-body">
+        <div class="expandable-content">
+          <label class="form-label">Event Category</label>
+          <div class="event-categories">
+            <button class="cat-btn active" onclick="selectCat(this)">🎉 Social Events</button>
+            <button class="cat-btn" onclick="selectCat(this)">⚙️ Technical Workshops</button>
+            <button class="cat-btn" onclick="selectCat(this)">🎭 Cultural Programs</button>
+            <button class="cat-btn" onclick="selectCat(this)">📢 Awareness Campaigns</button>
+            <button class="cat-btn" onclick="selectCat(this)">💚 Volunteer Drives</button>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Event Name</label><input class="form-input" id="ev-name" placeholder="Enter event name"/></div>
+            <div class="form-group"><label class="form-label">Date & Time</label><input class="form-input" type="datetime-local" id="ev-date"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Venue / Location</label><input class="form-input" id="ev-loc" placeholder="Venue name or online link"/></div>
+            <div class="form-group">
+              <label class="form-label">Event Mode</label>
+              <select class="form-input form-select" id="ev-mode">
+                <option>🏛️ Offline / In-Person</option>
+                <option>💻 Online / Virtual</option>
+                <option>🔀 Hybrid</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label class="form-label">Description</label><textarea class="form-input form-textarea" id="ev-desc" placeholder="Describe your event..."></textarea></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Max Capacity</label><input class="form-input" type="number" placeholder="e.g. 200"/></div>
+            <div class="form-group"><label class="form-label">Ticket Price</label><input class="form-input" placeholder="Free / ₹500 / $10"/></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Entry Options</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox"/> QR Code Entry</label>
+              <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox"/> RSVP Required</label>
+              <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox"/> Google Maps Link</label>
+              <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox"/> Live Streaming</label>
+              <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox"/> Recording Available</label>
+            </div>
+          </div>
+          <label class="form-label">⏳ Event Countdown</label>
+          <div class="countdown" id="countdown">
+            <div class="countdown-unit"><div class="countdown-num" id="cd-d">05</div><div class="countdown-label">DAYS</div></div>
+            <div class="countdown-unit"><div class="countdown-num" id="cd-h">14</div><div class="countdown-label">HRS</div></div>
+            <div class="countdown-unit"><div class="countdown-num" id="cd-m">32</div><div class="countdown-label">MIN</div></div>
+            <div class="countdown-unit"><div class="countdown-num" id="cd-s">00</div><div class="countdown-label">SEC</div></div>
+          </div>
+          <div class="qr-mock">📱</div>
+          <p style="font-size:.75rem;color:var(--muted);">QR Code will be auto-generated on event creation.</p>
+          <div class="map-mock">🗺️ Google Maps Preview</div>
+          <div style="display:flex;gap:.75rem;margin-top:1.25rem;flex-wrap:wrap;">
+            <button class="btn-primary" onclick="createEvent()">✅ Create Event</button>
+            <button class="btn-secondary">✏️ Edit Event</button>
+            <button class="btn-secondary" style="border-color:#e84a4a;color:#e84a4a;">🗑️ Delete Event</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEEDBACK SYSTEM -->
+    <div class="expandable">
+      <div class="expandable-header" onclick="toggle(this)">
+        <div class="expandable-title"><div class="expandable-icon-wrap" style="background:rgba(155,127,212,.12);">⭐</div> Feedback System</div>
+        <span class="expandable-arrow">▼</span>
+      </div>
+      <div class="expandable-body">
+        <div class="expandable-content">
+          <div class="form-group">
+            <label class="form-label">Rate this Event</label>
+            <div class="star-rating" id="stars">
+              <span class="star" onclick="rate(1)">★</span>
+              <span class="star" onclick="rate(2)">★</span>
+              <span class="star" onclick="rate(3)">★</span>
+              <span class="star" onclick="rate(4)">★</span>
+              <span class="star" onclick="rate(5)">★</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">📊 Community Poll — Best Event Category?</label>
+            <div class="poll-option" onclick="vote(this,42)" id="p1"><div class="poll-bar" style="width:42%"></div><span class="poll-label">⚙️ Technical Workshops</span><span class="poll-pct">42%</span></div>
+            <div class="poll-option" onclick="vote(this,28)" id="p2"><div class="poll-bar" style="width:28%"></div><span class="poll-label">🎭 Cultural Programs</span><span class="poll-pct">28%</span></div>
+            <div class="poll-option" onclick="vote(this,18)" id="p3"><div class="poll-bar" style="width:18%"></div><span class="poll-label">💚 Volunteer Drives</span><span class="poll-pct">18%</span></div>
+            <div class="poll-option" onclick="vote(this,12)" id="p4"><div class="poll-bar" style="width:12%"></div><span class="poll-label">🎉 Social Events</span><span class="poll-pct">12%</span></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">📝 Event Review</label>
+            <textarea class="form-input form-textarea" placeholder="Share your experience about this event..."></textarea>
+          </div>
+          <label class="form-label"><input type="checkbox" style="margin-right:.4rem;accent-color:var(--accent)"/> Submit as Anonymous</label>
+          <br/><br/>
+          <button class="btn-primary" onclick="this.textContent='✅ Feedback Submitted!'">Submit Feedback</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYTICS DASHBOARD -->
+    <div class="expandable" id="analytics">
+      <div class="expandable-header" onclick="toggle(this)">
+        <div class="expandable-title"><div class="expandable-icon-wrap" style="background:rgba(74,158,222,.12);">📊</div> Analytics Dashboard</div>
+        <span class="expandable-arrow">▼</span>
+      </div>
+      <div class="expandable-body">
+        <div class="expandable-content">
+          <div class="analytics-grid">
+            <div class="analytics-card"><div class="analytics-label">Total Members</div><div class="analytics-num">10,482</div><div class="analytics-change up">↑ 12.4% this month</div></div>
+            <div class="analytics-card"><div class="analytics-label">Events Hosted</div><div class="analytics-num">527</div><div class="analytics-change up">↑ 8.1% this month</div></div>
+            <div class="analytics-card"><div class="analytics-label">Engagement Rate</div><div class="analytics-num">94.7%</div><div class="analytics-change up">↑ 2.3% this month</div></div>
+            <div class="analytics-card"><div class="analytics-label">Active Orgs</div><div class="analytics-num">54</div><div class="analytics-change down">↓ 1.2% this month</div></div>
+          </div>
+
+          <!-- BAR CHART -->
+          <div class="chart-wrap">
+            <div class="chart-title">📊 Monthly Participation (Bar Chart) <span style="font-size:.75rem;color:var(--muted);">2026</span></div>
+            <div class="bar-chart">
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;"><div class="bar" style="height:60%;background:var(--accent);width:100%;"></div><div class="bar-label">Jan</div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;"><div class="bar" style="height:75%;background:var(--accent);width:100%;"></div><div class="bar-label">Feb</div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;"><div class="bar" style="height:90%;background:var(--accent);width:100%;"></div><div class="bar-label">Mar</div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;"><div class="bar" style="height:65%;background:var(--accent2);width:100%;"></div><div class="bar-label">Apr</div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;"><div class="bar" style="height:80%;background:var(--accent2);width:100%;"></div><div class="bar-label">May</div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;"><div class="bar" style="height:70%;background:var(--accent3);width:100%;"></div><div class="bar-label">Jun</div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;"><div class="bar" style="height:55%;background:var(--accent3);width:100%;"></div><div class="bar-label">Jul</div></div>
+              <div style="display:flex;flex-direction:column;align-items:center;flex:1;"><div class="bar" style="height:85%;background:var(--accent4);width:100%;"></div><div class="bar-label">Aug</div></div>
+            </div>
+          </div>
+
+          <!-- PIE / LINE CHARTS SIDE BY SIDE -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+            <div class="chart-wrap">
+              <div class="chart-title">🥧 Event Types (Pie Chart)</div>
+              <div class="pie-wrap">
+                <svg viewBox="0 0 100 100" width="120" height="120">
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#9b7fd4" stroke-width="20" stroke-dasharray="105 152" stroke-dashoffset="0"/>
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent2)" stroke-width="20" stroke-dasharray="70 187" stroke-dashoffset="-105"/>
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent3)" stroke-width="20" stroke-dasharray="45 212" stroke-dashoffset="-175"/>
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent4)" stroke-width="20" stroke-dasharray="37 220" stroke-dashoffset="-220"/>
+                </svg>
+                <div class="pie-legend">
+                  <div class="pie-legend-item"><div class="pie-dot" style="background:#9b7fd4"></div>Technical 42%</div>
+                  <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent2)"></div>Cultural 28%</div>
+                  <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent3)"></div>Volunteer 18%</div>
+                  <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent4)"></div>Social 12%</div>
+                </div>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <div class="chart-title">📈 Growth (Line Chart)</div>
+              <svg viewBox="0 0 280 120" width="100%" style="overflow:visible;">
+                <defs><linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent2)" stop-opacity=".3"/><stop offset="100%" stop-color="var(--accent2)" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0 100 L40 80 L80 60 L120 70 L160 40 L200 30 L240 20 L280 10" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M0 100 L40 80 L80 60 L120 70 L160 40 L200 30 L240 20 L280 10 L280 120 L0 120 Z" fill="url(#lineGrad)"/>
+                <circle cx="0" cy="100" r="4" fill="var(--accent2)"/>
+                <circle cx="80" cy="60" r="4" fill="var(--accent2)"/>
+                <circle cx="160" cy="40" r="4" fill="var(--accent2)"/>
+                <circle cx="280" cy="10" r="4" fill="var(--accent2)"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- DONUT CHART -->
+          <div class="chart-wrap">
+            <div class="chart-title">🍩 Engagement Distribution (Donut Chart)</div>
+            <div class="pie-wrap">
+              <svg viewBox="0 0 100 100" width="140" height="140">
+                <circle cx="50" cy="50" r="30" fill="none" stroke="#9b7fd4" stroke-width="14" stroke-dasharray="78 110" stroke-dashoffset="0"/>
+                <circle cx="50" cy="50" r="30" fill="none" stroke="var(--accent2)" stroke-width="14" stroke-dasharray="55 133" stroke-dashoffset="-78"/>
+                <circle cx="50" cy="50" r="30" fill="none" stroke="var(--accent3)" stroke-width="14" stroke-dasharray="35 153" stroke-dashoffset="-133"/>
+                <circle cx="50" cy="50" r="30" fill="none" stroke="var(--accent4)" stroke-width="14" stroke-dasharray="20 168" stroke-dashoffset="-168"/>
+                <text x="50" y="53" text-anchor="middle" font-size="8" font-weight="bold" fill="var(--ink)">94.7%</text>
+              </svg>
+              <div class="pie-legend">
+                <div class="pie-legend-item"><div class="pie-dot" style="background:#9b7fd4"></div>Event Attendees 42%</div>
+                <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent2)"></div>Chat Active 30%</div>
+                <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent3)"></div>Content Creators 19%</div>
+                <div class="pie-legend-item"><div class="pie-dot" style="background:var(--accent4)"></div>New Joiners 9%</div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="this.textContent='📥 Downloading Report...'">📥 Download Monthly Report</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAMIFICATION -->
+    <div class="expandable" id="community">
+      <div class="expandable-header" onclick="toggle(this)">
+        <div class="expandable-title"><div class="expandable-icon-wrap" style="background:rgba(155,127,212,.12);">🏆</div> Gamification & Leaderboard</div>
+        <span class="expandable-arrow">▼</span>
+      </div>
+      <div class="expandable-body">
+        <div class="expandable-content">
+          <div class="form-row">
+            <div>
+              <label class="form-label" style="margin-bottom:1rem;">🥇 Top Contributors</label>
+              <div class="leaderboard">
+                <div class="lb-row"><div class="lb-rank gold">1</div><div class="lb-avatar" style="background:var(--accent);">AK</div><div class="lb-info"><div class="lb-name">Aisha Khan</div><div class="lb-badges">🔥 🎯 🌟 +3 more</div></div><div class="lb-pts">4,820 pts</div></div>
+                <div class="lb-row"><div class="lb-rank silver">2</div><div class="lb-avatar" style="background:var(--accent2);">RM</div><div class="lb-info"><div class="lb-name">Ravi Menon</div><div class="lb-badges">💬 🤝 🥇</div></div><div class="lb-pts">4,210 pts</div></div>
+                <div class="lb-row"><div class="lb-rank bronze">3</div><div class="lb-avatar" style="background:var(--accent3);">PS</div><div class="lb-info"><div class="lb-name">Priya Singh</div><div class="lb-badges">📚 🌐 🏆</div></div><div class="lb-pts">3,890 pts</div></div>
+                <div class="lb-row"><div class="lb-rank">4</div><div class="lb-avatar" style="background:var(--accent4);color:var(--ink);">JD</div><div class="lb-info"><div class="lb-name">John Doe</div><div class="lb-badges">🎉 💡</div></div><div class="lb-pts">3,450 pts</div></div>
+                <div class="lb-row"><div class="lb-rank">5</div><div class="lb-avatar" style="background:#9b59b6;">LW</div><div class="lb-info"><div class="lb-name">Li Wei</div><div class="lb-badges">🌟 🤝</div></div><div class="lb-pts">3,100 pts</div></div>
+              </div>
+            </div>
+            <div>
+              <label class="form-label" style="margin-bottom:1rem;">🎖️ Available Badges</label>
+              <div class="badges-grid">
+                <div class="badge-item"><div class="badge-emoji">🥇</div><div class="badge-name">First Event</div></div>
+                <div class="badge-item"><div class="badge-emoji">🔥</div><div class="badge-name">Hot Streak</div></div>
+                <div class="badge-item"><div class="badge-emoji">💬</div><div class="badge-name">Communicator</div></div>
+                <div class="badge-item"><div class="badge-emoji">🌟</div><div class="badge-name">Star Member</div></div>
+                <div class="badge-item"><div class="badge-emoji">🎯</div><div class="badge-name">Goal Getter</div></div>
+                <div class="badge-item"><div class="badge-emoji">🤝</div><div class="badge-name">Collaborator</div></div>
+                <div class="badge-item"><div class="badge-emoji">📚</div><div class="badge-name">Learner</div></div>
+                <div class="badge-item"><div class="badge-emoji">🏆</div><div class="badge-name">Champion</div></div>
+                <div class="badge-item"><div class="badge-emoji">🌐</div><div class="badge-name">Global Voice</div></div>
+              </div>
+              <div style="background:rgba(155,127,212,.12);border:1px solid rgba(155,127,212,.3);border-radius:12px;padding:1rem;margin-top:1rem;font-size:.875rem;">
+                🏅 <strong>Monthly Recognition:</strong><br/><span style="color:var(--muted);">Aisha Khan is this month's Top Contributor!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMUNITY & INCLUSIVITY -->
+    <div class="expandable">
+      <div class="expandable-header" onclick="toggle(this)">
+        <div class="expandable-title"><div class="expandable-icon-wrap" style="background:rgba(110,200,122,.12);">🌐</div> Community & Inclusivity</div>
+        <span class="expandable-arrow">▼</span>
+      </div>
+      <div class="expandable-body">
+        <div class="expandable-content">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">🌍 Language</label>
+              <select class="form-input form-select">
+                <option>🇺🇸 English</option>
+                <option>🇮🇳 Hindi</option>
+                <option>🇪🇸 Spanish</option>
+                <option>🇫🇷 French</option>
+                <option>🇩🇪 German</option>
+                <option>🇯🇵 Japanese</option>
+                <option>🇨🇳 Chinese</option>
+                <option>🇦🇪 Arabic</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">🎨 Theme</label>
+              <select class="form-input form-select" onchange="applyTheme(this.value)">
+                <option value="light">☀️ Light Mode</option>
+                <option value="dark">🌙 Dark Mode</option>
+              </select>
+            </div>
+          </div>
+          <label class="form-label">♿ Accessibility & Display Options</label>
+          <div class="toggle-row"><span class="toggle-label">♿ Accessibility Mode</span><label class="toggle"><input type="checkbox" onchange=""/><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">🔤 Large Text</span><label class="toggle"><input type="checkbox"/><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">🔕 Focus Mode (Hide Distractions)</span><label class="toggle"><input type="checkbox"/><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">🔔 Smart Notifications</span><label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><span class="toggle-label">🤖 AI Event Recommendations</span><label class="toggle"><input type="checkbox" checked/><span class="toggle-slider"></span></label></div>
+          <br/>
+          <label class="form-label">📢 Announcements & Notice Board</label>
+          <div class="notification-list">
+            <div class="notif-item"><div class="notif-dot" style="background:var(--accent)"></div><div><div class="notif-text">🎉 <strong>Tech Summit 2026</strong> registrations are now open. RSVP before Mar 10!</div><div class="notif-time">2 hours ago</div></div></div>
+            <div class="notif-item"><div class="notif-dot" style="background:var(--accent2)"></div><div><div class="notif-text">📋 Monthly leaderboard has been updated. Check your ranking!</div><div class="notif-time">5 hours ago</div></div></div>
+            <div class="notif-item"><div class="notif-dot" style="background:var(--accent3)"></div><div><div class="notif-text">🌿 New Volunteer Drive posted for local park cleanup on March 22.</div><div class="notif-time">1 day ago</div></div></div>
+          </div>
+          <br/>
+          <label class="form-label">📁 Resource Library</label>
+          <div class="resource-grid">
+            <div class="resource-item"><div class="resource-icon">📄</div><div class="resource-name">Event Planning Guide</div><div class="resource-size">PDF · 2.4 MB</div></div>
+            <div class="resource-item"><div class="resource-icon">🎞️</div><div class="resource-name">Workshop Slides 2025</div><div class="resource-size">PPTX · 8.1 MB</div></div>
+            <div class="resource-item"><div class="resource-icon">📊</div><div class="resource-name">Community Report Q1</div><div class="resource-size">XLSX · 1.2 MB</div></div>
+            <div class="resource-item"><div class="resource-icon">🎥</div><div class="resource-name">Summit Recording</div><div class="resource-size">MP4 · 420 MB</div></div>
+            <div class="resource-item"><div class="resource-icon">📝</div><div class="resource-name">Member Handbook</div><div class="resource-size">DOC · 890 KB</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div class="expandable">
+      <div class="expandable-header" onclick="toggle(this)">
+        <div class="expandable-title"><div class="expandable-icon-wrap" style="background:rgba(232,74,74,.12);">⚙️</div> Admin Panel & Security</div>
+        <span class="expandable-arrow">▼</span>
+      </div>
+      <div class="expandable-body">
+        <div class="expandable-content">
+          <div class="admin-features">
+            <div class="admin-item"><div class="admin-item-icon">🔐</div><div class="admin-item-text"><div class="admin-item-title">Secure Login</div>JWT Auth, 2FA, OAuth support</div></div>
+            <div class="admin-item"><div class="admin-item-icon">🔒</div><div class="admin-item-text"><div class="admin-item-title">Data Encryption</div>AES-256 end-to-end encryption</div></div>
+            <div class="admin-item"><div class="admin-item-icon">🤖</div><div class="admin-item-text"><div class="admin-item-title">AI Moderation</div>Spam & hate speech detection</div></div>
+            <div class="admin-item"><div class="admin-item-icon">👁️</div><div class="admin-item-text"><div class="admin-item-title">User Monitoring</div>Activity logs, session tracking</div></div>
+            <div class="admin-item"><div class="admin-item-icon">📧</div><div class="admin-item-text"><div class="admin-item-title">Smart Notifications</div>Email, SMS, push alerts</div></div>
+            <div class="admin-item"><div class="admin-item-icon">🌟</div><div class="admin-item-text"><div class="admin-item-title">AI Recommendations</div>Personalised event suggestions</div></div>
+          </div>
+          <br/>
+          <div class="form-group"><label class="form-label">🔑 Admin Login</label></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Admin Email</label><input class="form-input" type="email" placeholder="admin@communitysync.org"/></div>
+            <div class="form-group"><label class="form-label">Password</label><input class="form-input" type="password" placeholder="••••••••"/></div>
+          </div>
+          <button class="btn-primary" onclick="this.textContent='🔓 Logging in...'">🔐 Secure Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--section-alt);">
+  <div class="section-inner reveal">
+    <div class="section-header">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What Our Community Says</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-text">CommunitySync has transformed how our community collaborates and communicates. The event tools are world-class!</div>
+        <div class="testimonial-author"><div class="testimonial-avatar" style="background:var(--accent);">AK</div><div><div class="testimonial-name">Aisha Khan</div><div class="testimonial-role">Community Leader, TechHub</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">The event management tools are powerful and easy to use! We ran 3 events in a week with zero hassle.</div>
+        <div class="testimonial-author"><div class="testimonial-avatar" style="background:var(--accent2);">RM</div><div><div class="testimonial-name">Ravi Menon</div><div class="testimonial-role">Organisation Head, DevCircle</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">A complete ecosystem for digital empowerment. The gamification keeps everyone engaged and motivated!</div>
+        <div class="testimonial-author"><div class="testimonial-avatar" style="background:var(--accent3);">PS</div><div><div class="testimonial-name">Priya Singh</div><div class="testimonial-role">Admin, EduReach NGO</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER SECTION -->
+<section id="register">
+  <div class="section-inner reveal">
+    <div class="section-header">
+      <div class="section-label">Get Started</div>
+      <h2 class="section-title">Join CommunitySync Today</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="register-card">
+      <div class="register-title">Create Your Account</div>
+      <div class="register-sub">Select your role and fill in your details to get started.</div>
+
+      <label class="form-label">Choose Your Role</label>
+      <div class="role-selector" id="role-sel">
+        <div class="role-opt sel" onclick="selRole(this,'Member')"><div class="role-opt-icon">👤</div><div class="role-opt-name">Member</div></div>
+        <div class="role-opt" onclick="selRole(this,'Community Leader')"><div class="role-opt-icon">🏆</div><div class="role-opt-name">Leader</div></div>
+        <div class="role-opt" onclick="selRole(this,'Organisation')"><div class="role-opt-icon">🏢</div><div class="role-opt-name">Organisation</div></div>
+        <div class="role-opt" onclick="selRole(this,'Admin')"><div class="role-opt-icon">⚙️</div><div class="role-opt-name">Admin</div></div>
+      </div>
+      <input type="hidden" id="reg-role" value="Member"/>
+
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">First Name *</label><input class="form-input" id="reg-fname" placeholder="Enter first name"/></div>
+        <div class="form-group"><label class="form-label">Last Name *</label><input class="form-input" id="reg-lname" placeholder="Enter last name"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Email Address *</label><input class="form-input" id="reg-email" type="email" placeholder="you@example.com"/></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="reg-phone" placeholder="+91 9876543210"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Username *</label><input class="form-input" id="reg-uname" placeholder="@yourusername"/></div>
+        <div class="form-group">
+          <label class="form-label">Gender</label>
+          <select class="form-input form-select" id="reg-gender">
+            <option value="">Select Gender</option>
+            <option>Male</option><option>Female</option><option>Non-binary</option><option>Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label class="form-label">Organisation / Institution</label><input class="form-input" id="reg-org" placeholder="e.g. MIT, Google, NGO name"/></div>
+      <div class="form-group"><label class="form-label">Bio</label><textarea class="form-input form-textarea" id="reg-bio" placeholder="Tell us about yourself..."></textarea></div>
+      <div class="form-group">
+        <label class="form-label">Your Skills (select all that apply)</label>
+        <div class="skills-wrap" id="reg-skills">
+          <span class="skill-tag" onclick="toggleSkill(this)">JavaScript</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Python</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Design</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Leadership</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Marketing</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Public Speaking</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Photography</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Research</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Data Analysis</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Teaching</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Writing</span>
+          <span class="skill-tag" onclick="toggleSkill(this)">Event Planning</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Interested Event Categories</label>
+        <div class="checkbox-group" id="reg-cats">
+          <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox" value="Social Events"/> 🎉 Social Events</label>
+          <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox" value="Technical Workshops"/> ⚙️ Technical Workshops</label>
+          <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox" value="Cultural Programs"/> 🎭 Cultural Programs</label>
+          <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox" value="Awareness Campaigns"/> 📢 Awareness Campaigns</label>
+          <label class="checkbox-item" onclick="this.classList.toggle('checked')"><input type="checkbox" value="Volunteer Drives"/> 💚 Volunteer Drives</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Password *</label><input class="form-input" id="reg-pass" type="password" placeholder="Minimum 8 characters"/></div>
+        <div class="form-group"><label class="form-label">Confirm Password *</label><input class="form-input" id="reg-pass2" type="password" placeholder="Repeat password"/></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">
+          <input type="checkbox" id="reg-terms" style="margin-right:.4rem;accent-color:var(--accent);"/> I agree to the <strong>Terms & Conditions</strong> and <strong>Privacy Policy</strong>
+        </label>
+      </div>
+      <button class="submit-btn" onclick="submitRegister()">Register & Join CommunitySync →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand"><span>Community</span>Sync</div>
+        <p class="footer-desc">A complete digital ecosystem for community empowerment, event management, and meaningful collaboration.</p>
+      </div>
+      <div class="footer-col"><h4>Platform</h4><ul><li><a href="#">Features</a></li><li><a href="#">Events</a></li><li><a href="#">Analytics</a></li><li><a href="#">Gamification</a></li></ul></div>
+      <div class="footer-col"><h4>Community</h4><ul><li><a href="#">Forums</a></li><li><a href="#">Chat Rooms</a></li><li><a href="#">Resource Library</a></li><li><a href="#">Leaderboard</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">© 2026 CommunitySync · Designed for Competition Presentation · Empowering Communities Through Digital Collaboration</div>
+  </div>
+</footer>
+
+<!-- RECEIPT MODAL -->
+<div id="receipt-modal">
+  <div class="receipt-card" id="receipt-content">
+    <!-- Filled by JS -->
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
